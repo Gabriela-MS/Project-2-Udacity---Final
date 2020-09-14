@@ -3,6 +3,7 @@
 import random
 from time import sleep
 from unidecode import unidecode
+
 # coding: utf-8
 """FINAL FILE!!!"""
 """This program plays a game of Rock, Paper, Scissors between two Players, """
@@ -47,7 +48,7 @@ class HumanPlayer(Player):
 class RockPlayer(Player):
     # noinspection PyMethodMayBeStatic
     def move(self):
-        return moves[0]
+        return 'rock'
 
 
 """ chooses its move at random.  """
@@ -59,7 +60,8 @@ class RandomPlayer(Player):
         return random.choice(moves)
 
 
-""" remembers what move the opponent played last round, and plays that move this round.  """
+""" remembers what move the opponent played last round, """
+"""and plays that move this round.  """
 
 
 class ReflectPlayer(Player):
@@ -72,8 +74,9 @@ class ReflectPlayer(Player):
             return 'rock'
 
 
-""" remembers what move it played last round, and cycles through the different moves.
-(If it played 'rock' this round, it should play 'paper' in the next round.) """
+""" remembers what move it played last round,"""
+"""and cycles through the different moves."""
+"""(If it played 'rock' now, it should play 'paper' in the next round.) """
 
 
 class CyclePlayer(Player):
@@ -94,9 +97,10 @@ def beats(one, two):
             (one == 'paper' and two == 'rock'))
 
 
-""" Attention from line 107 -  Use of 'f-strings' check: 
-https://www.geeksforgeeks.org/formatted-string-literals-f-strings-python/ """
-""" Range - line 135: check https://pynative.com/python-range-function/#for-i-in-range-8211-for-loop-with-range"""
+""" Attention from line 107 -  Use of 'f-strings' check:"""
+"""https://www.geeksforgeeks.org/formatted-string-literals-f-strings-python/"""
+"""L135:https://pynative.com/python-range-function/"""
+"""#for-i-in-range-8211-for-loop-with-range"""
 
 
 class Game:
@@ -130,7 +134,7 @@ class Game:
             sleep(1.8)
 
     def play_game(self):
-        print("* * * * * * Welcome to the ROCK, PAPER, SCISSORS game. * * * * * *\n")
+        print("* * * * Welcome to the ROCK, PAPER, SCISSORS game. * * * *\n")
         print("Here are the rules: \n")
         print("Rock vs Paper -> Paper wins \n"
               "Rock vs Scissor -> Rock wins \n"
@@ -138,28 +142,33 @@ class Game:
         sleep(2.8)
         while True:
             for round in range(10):
-                print(f"ROUND NUMBER: {round + 1}     |     SCORE: You: {self.p1_score} Computer: {self.p2_score}")
+                print(f"ROUND NUMBER: {round + 1}     |     "
+                      "SCORE: You: {self.p1_score} Computer: {self.p2_score}")
                 self.play_round()
                 if (round == 9) and self.p1_score < self.p2_score:
-                    print(f"* * * * * * FINAL SCORE: You: {self.p1_score} Computer: {self.p2_score} * * * * * *")
-                    print("* * * * * Game over! Better luck next time! * * * * * *  \n\n")
+                    print(f"* * * * * * FINAL SCORE: You: {self.p1_score} "
+                          f"Computer: {self.p2_score} * * * * * *")
+                    print("* * * * * Game over! Better luck "
+                          "next time! * * * * * * \n\n")
                     sleep(3)
 
                 elif (round == 9) and self.p1_score > self.p2_score:
-                    print(f"* * * * * * FINAL SCORE: You: {self.p1_score} Computer: {self.p2_score} * * * * * *")
-                    print("* * * Congratulations! You won most of the games! * * * \n\n")
+                    print(f"* * * * * * FINAL SCORE: You: {self.p1_score} "
+                          f"Computer: {self.p2_score} * * * * * *")
+                    print("* * * Congratulations! You won most "
+                          "of the games! * * * \n\n")
                     sleep(3)
 
                 elif (round == 9) and self.p1_score == self.p2_score:
-                    print(f"* * * * * * FINAL SCORE: You: {self.p1_score} Computer: {self.p2_score} * * * * * *")
-                    print("* * * * * It is a tie! You both won the games! * * * * * \n\n")
+                    print(f"* * * * * * FINAL SCORE: You: {self.p1_score} "
+                          f"Computer: {self.p2_score} * * * * * *")
+                    print("* * * * * It is a tie! You both won "
+                          "the games! * * * * * \n\n")
                     sleep(3)
             self.p1_score = 0
             self.p2_score = 0
             repeat = input('Would you like to play again? (y/n): ')
             if repeat == 'y' or repeat == 'Y':
-                print("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * \
-                * * * *\n\n\n")
                 pass
             else:
                 sleep(0.5)
@@ -168,8 +177,10 @@ class Game:
 
 
 """How to break a while true with a (y/N) at """
-"""https://stackoverflow.com/questions/51446396/i-cant-break-out-of-while-true-loop-in-python-3-7"""
+"""https://stackoverflow.com/questions/51446396/"""
+"""i-cant-break-out-of-while-true-loop-in-python-3-7"""
 
 if __name__ == '__main__':
-    game = Game(HumanPlayer(), random.choice([RandomPlayer(), ReflectPlayer(), CyclePlayer()]))
+    game = Game(HumanPlayer(), random.choice(
+                                             [RandomPlayer(), ReflectPlayer(), CyclePlayer()]))
     game.play_game()
