@@ -136,9 +136,9 @@ class Game:
     def play_game(self):
         print("* * * * Welcome to the ROCK, PAPER, SCISSORS game. * * * *\n")
         print("Here are the rules: \n")
-        print("Rock vs Paper -> Paper wins \n"
-              "Rock vs Scissor -> Rock wins \n"
-              "Paper vs Scissor -> Scissor wins \n")
+        print("rock vs paper -> paper wins \n"
+              "rock vs scissor -> rock wins \n"
+              "paper vs scissor -> scissor wins \n")
         sleep(2.8)
         while True:
             for round in range(10):
@@ -182,5 +182,5 @@ class Game:
 
 if __name__ == '__main__':
     game = Game(HumanPlayer(), random.choice(
-                                             [RandomPlayer(), ReflectPlayer(), CyclePlayer()]))
+        [RandomPlayer(), ReflectPlayer(), CyclePlayer()]))
     game.play_game()
