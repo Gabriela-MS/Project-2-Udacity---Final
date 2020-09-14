@@ -143,7 +143,7 @@ class Game:
         while True:
             for round in range(10):
                 print(f"ROUND NUMBER: {round + 1}     |     "
-                      "SCORE: You: {self.p1_score} Computer: {self.p2_score}")
+                      f"SCORE: You: {self.p1_score} Computer: {self.p2_score}")
                 self.play_round()
                 if (round == 9) and self.p1_score < self.p2_score:
                     print(f"* * * * * * FINAL SCORE: You: {self.p1_score} "
