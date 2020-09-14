@@ -1,5 +1,5 @@
 # Writen and interpreted at PyCharm CE - Finally a decent interpreter!!!.
-# Writen following Python 3 changes/novelties.
+# Writen following Python 3 changes/novelties
 import random
 from time import sleep
 from unidecode import unidecode
